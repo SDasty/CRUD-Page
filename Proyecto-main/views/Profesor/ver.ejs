@@ -1,0 +1,44 @@
+<%- include("../header"); %>
+<div class="col-12">
+    <h1>Profesor</h1>
+    <a href="/Profesor/agregar" class="btn btn-primary mb-2">Agregar</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>nombre</th>
+                <th>email</th>
+                <th>telefono</th>
+                <th>area Principal</th>
+                <th>area Alternativa</th>
+                <th>contraseña</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% Profesor.forEach(profesor => { %>
+            <tr>
+                <td><%= profesor.nombre %></td>
+                <td><%= profesor.email %></td>
+                <td><%= profesor.telefono %></td>
+                <td><%= profesor.area_p %></td>
+                <td><%= profesor.area_a %></td>
+                <td><%= profesor.contraseña %></td>
+                
+                <td>
+                    <a href="/Profesor/editar/<%= profesor.doc_id %>" class="btn btn-warning">
+                        Editar
+                    </a>
+                </td>
+                <td>
+                    <a href="/Profesor/eliminar/<%= profesor.doc_id %>" class="btn btn-danger">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <a href="/" class="btn btn-secondary mb-2">Regresar</a>
+</div>
+<%- include("../footer"); %>

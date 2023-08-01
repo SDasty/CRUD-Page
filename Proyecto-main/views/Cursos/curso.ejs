@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalles del Curso</title>
+    <style>
+        ul {
+            list-style-type: disc; /* Establece la viñeta como un disco */
+        }
+
+        ul li {
+            margin-bottom: 10px; /* Añade un margen inferior a cada elemento de la lista */
+            padding-left: 20px; /* Agrega un espacio a la izquierda para la viñeta */
+        }
+    </style>
+</head>
+<body>
+    <h1>Curso: <%= Curso.nombre %></h1>
+
+    <h2>Profesor</h2>
+    <ul>
+        <% if (Curso.profesores) {
+            Curso.profesores.forEach(function(profesor) { %>
+                <li>Nombre: <%= profesor.nombre %><br><li>Email: <%= profesor.email %></li>
+            <% });
+        } %>
+    </ul>
+
+    <h2>Alumnos</h2>
+    <ul>
+        <% if (Curso.alumnos) {
+            Curso.alumnos.forEach(function(alumno) { %>
+                <li>Nombre: <%= alumno.nombre %><br>Email: <%= alumno.email %></li>
+            <% });
+        } %>
+    </ul>
+
+    <h2>Materiales</h2>
+    <ul>
+        <% if (Curso.materiales) {
+            Curso.materiales.forEach(function(material) { %>
+                <li>Título: <%= material.titulo %><br>Descripción: <%= material.descripcion %><br>Archivo: <%= material.archivo %></li>
+            <% });
+        } %>
+    </ul>
+
+    <h2>Tareas</h2>
+    <ul>
+        <% if (Curso.tareas) {
+            Curso.tareas.forEach(function(tarea) { %>
+                <li>Nombre: <%= tarea.nombre %><br>Descripción: <%= tarea.descripcion %><br>Fecha de entrega: <%= tarea.fecha_e %><br>Archivo: <%= tarea.archivo %></li>
+            <% });
+        } %>
+    </ul>
+
+    <h2>Foros</h2>
+    <ul>
+        <% if (Curso.foros) {
+            Curso.foros.forEach(function(foro) { %>
+                <li>Nombre: <%= foro.nombre %><br>Descripción: <%= foro.descripcion %></li>
+            <% });
+        } %>
+    </ul>
+
+    <a href="/Cursos">Volver a la lista de cursos</a>
+</body>
+</html>
